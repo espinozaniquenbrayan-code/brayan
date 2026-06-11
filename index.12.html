@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Análisis Sentimental</title>
+
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff4d6d;
+        }
+
+        #pantalla {
+            margin-top: 20px;
+            white-space: pre-line;
+            font-size: 18px;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #ff4d6d;
+            color: white;
+            cursor: pointer;
+        }
+
+        .corazon {
+            color: red;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>💻 SISTEMA DE ANÁLISIS SENTIMENTAL v1.0 💻</h1>
+
+    <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+    <button onclick="iniciar()">Iniciar</button>
+
+    <div id="pantalla"></div>
+
+    <script>
+        function esperar(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function escribir(texto) {
+            let pantalla = document.getElementById("pantalla");
+
+            for (let letra of texto) {
+                pantalla.innerHTML += letra;
+                await esperar(40);
+            }
+
+            pantalla.innerHTML += "<br>";
+        }
+
+        async function iniciar() {
+
+            let nombre = document.getElementById("nombre").value;
+            let pantalla = document.getElementById("pantalla");
+
+            pantalla.innerHTML = "";
+
+            await escribir("Conectando...");
+            await esperar(1000);
+
+            await escribir("Buscando información...");
+            await esperar(1000);
+
+            await escribir("Nombre encontrado: " + nombre);
+            await esperar(1000);
+
+            await escribir("Analizando personalidad...");
+            await esperar(2000);
+
+            await escribir("");
+            await escribir("Resultado encontrado:");
+            await esperar(1000);
+
+            await escribir(nombre + ", eres una persona especial.");
+            await escribir("Tus sonrisas tienen un efecto extraño.");
+            await escribir("Logran mejorar cualquier día.");
+
+            await escribir("");
+            await escribir("Procesando razón...");
+            await esperar(2000);
+
+            await escribir("ERROR 404");
+            await escribir("No se encontró ninguna razón lógica.");
+
+            await escribir("");
+            await escribir("Posible explicación:");
+            await escribir("Simplemente eres increíble. ❤️");
+
+            await escribir("");
+            await escribir("Calculando nivel de admiración...");
+
+            for (let i = 0; i <= 100; i += 10) {
+                await escribir(i + "%");
+                await esperar(300);
+            }
+
+            await escribir("");
+            await escribir("Resultado: 100% ❤️");
+
+            pantalla.innerHTML += `
+    <div class="corazon">
+❤️❤️❤️❤️❤️<br>
+❤️❤️❤️❤️❤️❤️❤️<br>
+❤️❤️❤️❤️❤️❤️❤️❤️❤️<br>
+❤️❤️❤️❤️❤️❤️❤️❤️❤️<br>
+❤️❤️❤️❤️❤️❤️❤️<br>
+❤️❤️❤️❤️❤️<br>
+❤️❤️❤️<br>
+❤️
+    </div>
+    `;
+
+            await escribir("");
+            await escribir("Programa terminado.");
+            await escribir("Aunque para ser sincero...");
+            await escribir("Creo que desde que apareciste en mi vida");
+            await escribir("ya no quiero cerrar esta aplicación. ❤️");
+
+            await escribir("");
+            await escribir("[ FIN DEL PROGRAMA ]");
+        }
+    </script>
+
+</body>
+
+</html>
